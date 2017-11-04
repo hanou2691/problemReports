@@ -34,8 +34,6 @@ router.get('/reports', function(req, res, next) {
   res.render('reports', {});
 });
 router.get('/info', function(req, res, next) {
-  // console.log(req);
-  // console.log(res);
   res.render('info', {});
 });
 router.post('/report/submit', function(req, res, next) {
@@ -50,16 +48,11 @@ router.post('/report/submit', function(req, res, next) {
   res.redirect('/');
 });
 router.post('/search/reports', function(req, res, next) {
-  // var getInputAddress = function(){
-  //   return req.body.address;
-  // }
   var getReports = firebase.database().ref('/reports').once('value').then(function(snapshot){
         var reports =[];
         snapshot.forEach(function(report){
-            // console.log(report.val());
-            // console.log(req.body.address);
-            if(req.body.address === report.val()['location'])
-              reports.push({'report' : report.val()});
+          if(req.body.address === report.val()['location'])
+            reports.push({'report' : report.val()});
         });
         return reports;
     });

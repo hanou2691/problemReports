@@ -1,11 +1,9 @@
 extends layout
 block content
-  h1= title
-  div.input
-    span.label Statistics for  #{input} :
-    if(reports.length !== 0)
-      ul
-      each item in reports
-        li= item.report.category + ' reported on '+ item.report.date
-    else
-      span.label Nothing reported for this city!
+  label(for="reports") Statistics for  #{input} :
+  if(reports.length !== 0)
+    ul(class="list-group")
+    each item in reports
+      li(class="list-group-item")= item.report.category + ' reported on '+ item.report.date
+  else
+    label Nothing reported for this city!

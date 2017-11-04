@@ -1,9 +1,7 @@
 extends layout
 block content
-  h1= title
   form.input(action = "/search/reports", method = "post")
-    span.label problem location
-    br
-    input#addressInput(type = "text", name = "address", required=true)
-    br
-    input#submit(type = "submit" value = "reports")
+    div(class  = "form-group")
+      label(for = "city") Enter a city
+      input#addressInput(type = "text", name = "address", required=true, class= "form-control")
+    input#submit(type = "submit" value = "Search" class = "btn btn-default")

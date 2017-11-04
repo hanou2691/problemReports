@@ -1,25 +1,21 @@
 extends layout
 block content
-  h1= title
   form.input(action = "/report/submit", method = "post")
-    span.label Report a problem
+    span.label Report a problem 
     br
-    span.label problem location
-    br
-    input#addressInput(type = "text", name = "address", required=true)
-    br
-    span.label problem category
-    br
-    select#category(name = "selectCategory", required=true)
-      option(value = 'roads') roads
-      option(value = 'WasteManagement') Waste Management
-      option(value = 'Snow Removal') Snow Removal
-      option(value = 'Traffic Signals') Traffic Signals
-      option(value = 'Street Lighting') Street Lighting
-    br
-    span.label date 
-    input#date(type = "text", size = "8", name = "date", required=true)
-    br
-    input#submit(type = "submit" value = "report")
-  span#submissionResult
+    div(class  = "form-group")
+      label(for="address") Enter the city where you noticed a problem
+      input#addressInput(type = "text", name = "address", required=true, class= "form-control")
+    div(class  = "form-group")
+      label(for="category") problem category
+      select#category(name = "selectCategory", required=true, class= "form-control")
+        option(value = 'roads') roads
+        option(value = 'WasteManagement') Waste Management
+        option(value = 'Snow Removal') Snow Removal
+        option(value = 'Traffic Signals') Traffic Signals
+        option(value = 'Street Lighting') Street Lighting
+    div(class  = "form-group")
+      label(for="date") date 
+      input#date(type = "text", size = "8", name = "date", required=true, class= "form-control")
+    input#submit(type = "submit" value = "Report" class= "btn btn-default")
     
