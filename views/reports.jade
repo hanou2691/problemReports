@@ -1,0 +1,9 @@
+extends layout
+block content
+  h1= title
+  form.input(action = "/search/reports", method = "post")
+    span.label problem location
+    br
+    input#addressInput(type = "text", name = "address", required=true)
+    br
+    input#submit(type = "submit" value = "reports")
